@@ -1,1 +1,15 @@
 @import 'tailwindcss';
+@import 'tailwindcss-animated';
+
+* {
+	user-select: none;
+}
+
+@theme {
+	--color-background: #111e03;
+	--color-primary: #085e10;
+	--color-primary-text: #d6d9d4;
+	--color-secondary: #74944c;
+	--color-secondary-text: #b8bcb3;
+	--color-tert: #27321a;
+}
