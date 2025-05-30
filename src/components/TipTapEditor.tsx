@@ -6,10 +6,18 @@ import StarterKit from '@tiptap/starter-kit';
 const TiptapEditor = () => {
 	const editor = useEditor({
 		extensions: [StarterKit],
-		content: '<p>Hello World! 🌎️</p>',
+		content: `
+			<h1>Start with a nice heading</h1>
+			<p>Page content will go here...</p>
+		`,
+		editorProps: {
+			attributes: {
+				class: 'text-primary-text border-solid border-2 border-white p-4 rounded-xl',
+			},
+		},
 	});
 
-	return <EditorContent editor={editor} />;
+	return <EditorContent className='' editor={editor} />;
 };
 
 export default TiptapEditor;

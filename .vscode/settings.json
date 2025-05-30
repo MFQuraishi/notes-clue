@@ -1,3 +1,4 @@
 {
-	"tailwindCSS.config": "./tailwind.config.js"
+	"tailwindCSS.config": "./tailwind.config.js",
+	"tailwindCSS.experimental.classRegex": ["class:\\s*?[\"'`]([^\"'`]*).*?,"]
 }
