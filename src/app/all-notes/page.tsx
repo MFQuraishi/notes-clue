@@ -1,3 +1,5 @@
+'use client';
+
 import TiptapEditor from '@/components/tiptapEditor/TipTapEditor';
 
 export default function AllNotesPage() {

@@ -6,13 +6,21 @@ import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import './styles.css';
 import { TipTapToolbar } from '../tiptapToolbar/TiptapToolbar';
+import handleEditorEdits from '@/utils/handleEditorEdits';
 
 const CustomDocument = Document.extend({
 	content: 'heading paragraph+ block*',
 });
 
-const TiptapEditor = () => {
+type Props = {
+	noteId?: string;
+};
+
+const TiptapEditor = ({ noteId }: Props) => {
 	const editor = useEditor({
+		onUpdate: ({ editor }) => {
+			handleEditorEdits(editor.getJSON(), noteId);
+		},
 		extensions: [
 			CustomDocument,
 			StarterKit.configure({
