@@ -2,6 +2,7 @@ import { Editor } from '@tiptap/react';
 import { IconType } from 'react-icons';
 import { FaBold, FaItalic, FaStrikethrough } from 'react-icons/fa';
 import { GoListUnordered } from 'react-icons/go';
+import PrimaryButton from '../Button/PrimaryButton';
 
 type Props = {
 	editor: Editor | null;
@@ -51,16 +52,5 @@ export function TipTapToolbar({ editor }: Props) {
 
 function ButtonComponent({ onClick, ImageComponent, text, dataActive }: ButtonComponentProps) {
 	const isActive = dataActive === 'is-active';
-	return (
-		<button
-			className={`${
-				isActive ? 'brightness-150 font-semibold' : ''
-			} flex flex-row border px-2.5 py-1 items-center cursor-pointer rounded-xl border-solid border-accent text-primary-text`}
-			onClick={onClick}
-			data-active={dataActive}
-		>
-			<ImageComponent className='h-4 w-4 mr-2' />
-			<p className=''>{text}</p>
-		</button>
-	);
+	return <PrimaryButton isActive={isActive} text={text} ImageComponent={ImageComponent} onClick={onClick} />;
 }

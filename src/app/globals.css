@@ -3,10 +3,11 @@
 
 * {
 	user-select: none;
+	color: var(--color-primary-text);
 }
 
 @theme {
-	--color-accent: #ff4845;
+	--color-accent: #7b2422;
 	--color-background: #1d0e0e;
 	--color-primary: #2b0505;
 	--color-primary-text: #eccccb;

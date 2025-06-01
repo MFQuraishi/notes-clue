@@ -39,7 +39,7 @@ const TiptapEditor = () => {
 	return (
 		<div className='p-4'>
 			<TipTapToolbar editor={editor} />
-			<EditorContent className='' editor={editor} />;
+			<EditorContent editor={editor} />
 		</div>
 	);
 };
