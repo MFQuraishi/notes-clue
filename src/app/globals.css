@@ -5,18 +5,10 @@
 	user-select: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	all: revert;
-}
-
 @theme {
+	--color-accent: #ff4845;
 	--color-background: #1d0e0e;
-	--color-primary: #a92e2e;
+	--color-primary: #631c1c;
 	--color-primary-text: #eccccb;
 	--color-secondary: #da7171;
 	--color-secondary-text: #a07473;

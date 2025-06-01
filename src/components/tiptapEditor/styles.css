@@ -1,0 +1,32 @@
+.tiptap h1,
+.tiptap h2,
+.tiptap h3,
+.tiptap h4,
+.tiptap h5,
+.tiptap h6 {
+	all: revert;
+}
+
+.tiptap ul {
+	all: revert;
+}
+
+.tiptap h1 {
+	margin: 0.5rem 0px;
+}
+
+.tiptap h1.is-empty:first-child::before {
+	color: var(--color-secondary-text);
+	content: attr(data-placeholder);
+	float: left;
+	height: 0;
+	pointer-events: none;
+}
+
+.tiptap p.is-empty:first-of-type::before {
+	color: var(--color-secondary-text);
+	content: attr(data-placeholder);
+	float: left;
+	height: 0;
+	pointer-events: none;
+}

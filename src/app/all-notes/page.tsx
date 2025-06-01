@@ -1,4 +1,4 @@
-import TiptapEditor from '@/components/TipTapEditor';
+import TiptapEditor from '@/components/tiptapEditor/TipTapEditor';
 
 export default function AllNotesPage() {
 	return (
