@@ -7,6 +7,9 @@ import StarterKit from '@tiptap/starter-kit';
 import './styles.css';
 import { TipTapToolbar } from '../tiptapToolbar/TiptapToolbar';
 import handleEditorEdits from '@/utils/handleEditorEdits';
+import { getUUID } from '@/utils/generateUUID';
+import { useEffect } from 'react';
+import navigate from '@/utils/navigationHelpers';
 
 const CustomDocument = Document.extend({
 	content: 'heading paragraph+ block*',
@@ -17,9 +20,17 @@ type Props = {
 };
 
 const TiptapEditor = ({ noteId }: Props) => {
+	const noteIdFromParent = noteId || getUUID();
+
+	useEffect(() => {
+		if (!noteId) {
+			navigate('/all-notes', { pathsArray: [noteIdFromParent] });
+		}
+	}, [noteId, noteIdFromParent]);
+
 	const editor = useEditor({
 		onUpdate: ({ editor }) => {
-			handleEditorEdits(editor.getJSON(), noteId);
+			handleEditorEdits(editor.getJSON(), noteIdFromParent);
 		},
 		extensions: [
 			CustomDocument,
