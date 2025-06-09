@@ -10,6 +10,7 @@ import handleEditorEdits from '@/utils/handleEditorEdits';
 import { getUUID } from '@/utils/generateUUID';
 import { useEffect } from 'react';
 import navigate from '@/utils/navigationHelpers';
+import NAVIGATION_PATHS from '@/constants/paths';
 
 const CustomDocument = Document.extend({
 	content: 'heading paragraph+ block*',
@@ -24,7 +25,7 @@ const TiptapEditor = ({ noteId }: Props) => {
 
 	useEffect(() => {
 		if (!noteId) {
-			navigate('/all-notes', { pathsArray: [noteIdFromParent] });
+			navigate(NAVIGATION_PATHS.allNotesPage, { pathsArray: [noteIdFromParent] });
 		}
 	}, [noteId, noteIdFromParent]);
 
