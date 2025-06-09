@@ -2,7 +2,7 @@
 
 import Document from '@tiptap/extension-document';
 import Placeholder from '@tiptap/extension-placeholder';
-import { useEditor, EditorContent } from '@tiptap/react';
+import { useEditor, EditorContent, JSONContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import './styles.css';
 import { TipTapToolbar } from '../tiptapToolbar/TiptapToolbar';
@@ -18,16 +18,11 @@ const CustomDocument = Document.extend({
 
 type Props = {
 	noteId?: string;
+	content?: JSONContent;
 };
 
-const TiptapEditor = ({ noteId }: Props) => {
+const TiptapEditor = ({ noteId, content }: Props) => {
 	const noteIdFromParent = noteId || getUUID();
-
-	useEffect(() => {
-		if (!noteId) {
-			navigate(NAVIGATION_PATHS.allNotesPage, { pathsArray: [noteIdFromParent] });
-		}
-	}, [noteId, noteIdFromParent]);
 
 	const editor = useEditor({
 		onUpdate: ({ editor }) => {
@@ -55,6 +50,18 @@ const TiptapEditor = ({ noteId }: Props) => {
 			},
 		},
 	});
+
+	useEffect(() => {
+		if (!noteId) {
+			navigate(NAVIGATION_PATHS.allNotesPage, { pathsArray: [noteIdFromParent] });
+		}
+	}, [noteId, noteIdFromParent]);
+
+	useEffect(() => {
+		if (content && editor) {
+			editor.commands.setContent(content);
+		}
+	}, [content, noteId, editor]);
 
 	return (
 		<div className='p-4'>

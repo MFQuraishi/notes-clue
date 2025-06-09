@@ -1,11 +1,16 @@
-import TiptapEditor from '@/components/tiptapEditor/TipTapEditor';
+'use client';
 
-export default async function NotesHome({ params }: { params: Promise<{ noteSlug: string }> }) {
-	const { noteSlug } = await params;
+import TiptapEditor from '@/components/tiptapEditor/TipTapEditor';
+import { useNotesListStore } from '@/stateManagement/notesListStates';
+import { useParams } from 'next/navigation';
+
+export default function NotesHome() {
+	const { noteSlug }: { noteSlug: string } = useParams();
+	const { notes } = useNotesListStore();
 
 	return (
 		<div>
-			<TiptapEditor noteId={noteSlug} />
+			<TiptapEditor content={notes?.[noteSlug]?.content} noteId={noteSlug} />
 		</div>
 	);
 }
